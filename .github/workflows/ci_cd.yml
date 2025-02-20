@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ ci-cd ] # Triggers on pushes to these branches
+    branches: [ master ] # Triggers on pushes to these branches
   pull_request:
-    branches: [ ci-cd ] # Triggers on pull requests to these branches
+    branches: [ master ] # Triggers on pull requests to these branches
 
 jobs:
   build:
