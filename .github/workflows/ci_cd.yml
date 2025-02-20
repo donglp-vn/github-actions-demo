@@ -32,19 +32,19 @@ jobs:
       - name: Build Debug APK
         run: ./gradlew assembleDebug
 
-      - name: Upload Debug APK to Artifacts (Optional)
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+#      - name: Upload Debug APK to Artifacts (Optional)
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: debug-apk
+#          path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Upload to DeployGate
         env:
           DEPLOYGATE_API_TOKEN: ${{ secrets.DEPLOYGATE_API_TOKEN }}
-          DEPLOYGATE_USER: ${{ secrets.DEPLOYGATE_USERNAME }}
+          DEPLOYGATE_USERNAME: ${{ secrets.DEPLOYGATE_USERNAME }}
         run: |
           curl -X POST \
-            https://deploygate.com/api/users/$DEPLOYGATE_USERNAME/apps \
+            https://deploygate.com/api/users/DEPLOYGATE_USERNAME/apps \
             -F "file=@app/build/outputs/apk/debug/app-debug.apk" \
             -F "token=$DEPLOYGATE_API_TOKEN" \
             -F "message=Build from GitHub Actions" \
