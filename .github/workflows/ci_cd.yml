@@ -41,6 +41,6 @@ jobs:
       - name: Upload to DeployGate
         uses: jmatsu/dg-upload-app-action@v0.2.2
         with:
-            token: ${{ secrets.deploygate_xusr_PvXACpaiE5jOceAipYkG6QDtW15aFf_0hHlv2 }}
-            file: app/build/outputs/apk/release/app-debug.apk # Path to the *signed* APK
-            message: "Automated build from GitHub Actions" # Release notes or message
+          app_owner_name: donglpairtrip
+          api_token: ${{ secrets.deploygate_xusr_PvXACpaiE5jOceAipYkG6QDtW15aFf_0hHlv2 }}
+          app_file_path: app/build/outputs/apk/release/app-debug.apk
