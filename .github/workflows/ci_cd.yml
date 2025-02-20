@@ -39,7 +39,7 @@ jobs:
           path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Upload to DeployGate
-        uses: deploygate/action@v0.2.2
+        uses: deploygate/action@v0.2
         with:
             token: ${{ secrets.deploygate_xusr_PvXACpaiE5jOceAipYkG6QDtW15aFf_0hHlv2 }}
             file: app/build/outputs/apk/release/app-debug.apk # Path to the *signed* APK
