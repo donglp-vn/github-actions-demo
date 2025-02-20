@@ -38,23 +38,23 @@ jobs:
 #          name: debug-apk
 #          path: app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Upload to DeployGate
-        env:
-          DEPLOYGATE_API_TOKEN: ${{ secrets.DEPLOYGATE_API_TOKEN }}
-        run: |
-          curl -X POST \
-            https://deploygate.com/api/users/donglphtv/apps \
-            -F "file=@app/build/outputs/apk/debug/app-debug.apk" \
-            -F "token=$DEPLOYGATE_API_TOKEN" \
-            -F "message=Build from GitHub Actions" \
-            -F "distribution_key=development" \
-            -F "release_note=Automated build from branch ${{ github.ref_name }}"
+#      - name: Upload to DeployGate
+#        env:
+#          DEPLOYGATE_API_TOKEN: ${{ secrets.DEPLOYGATE_API_TOKEN }}
+#        run: |
+#          curl -X POST \
+#            https://deploygate.com/api/users/donglphtv/apps \
+#            -F "file=@app/build/outputs/apk/debug/app-debug.apk" \
+#            -F "token=$DEPLOYGATE_API_TOKEN" \
+#            -F "message=Build from GitHub Actions" \
+#            -F "distribution_key=development" \
+#            -F "release_note=Automated build from branch ${{ github.ref_name }}"
       
 
-      #      - name: Upload to DeployGate
-#        uses: jmatsu/dg-upload-app-action@v0.2.2
-#        with:
-#          app_owner_name: donglphtv
-#          api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }}
-#          app_file_path: app/build/outputs/apk/debug/app-debug.apk
+      - name: Upload to DeployGate
+        uses: jmatsu/dg-upload-app-action@v0.2.2
+        with:
+          app_owner_name: donglphtv
+          api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }}
+          app_file_path: app/build/outputs/apk/debug/app-debug.apk
 
