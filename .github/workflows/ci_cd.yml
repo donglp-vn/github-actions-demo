@@ -41,10 +41,9 @@ jobs:
       - name: Upload to DeployGate
         env:
           DEPLOYGATE_API_TOKEN: ${{ secrets.DEPLOYGATE_API_TOKEN }}
-          DEPLOYGATE_USERNAME: ${{ secrets.DEPLOYGATE_USERNAME }}
         run: |
           curl -X POST \
-            https://deploygate.com/api/users/DEPLOYGATE_USERNAME/apps \
+            https://deploygate.com/api/users/donglphtv/apps \
             -F "file=@app/build/outputs/apk/debug/app-debug.apk" \
             -F "token=$DEPLOYGATE_API_TOKEN" \
             -F "message=Build from GitHub Actions" \
